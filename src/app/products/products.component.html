@@ -1,0 +1,33 @@
+<div id="gridWrapper">
+  <div id="formWrapper">
+    <form #postForm="ngForm" (ngSubmit)="addCartItem(postForm)">
+      <h2>Add in a new item</h2>
+      <label for="id">Add Item ID:</label>
+      <input type="text" name="id" id="" placeholder="ID of Item?" />
+      <label for="product">Add Product Name:</label>
+      <input
+        type="text"
+        name="amount"
+        id="product"
+        placeholder="Name of Product?"
+      />
+      <label for="price">Price of Item:</label>
+      <input type="text" name="price" id="price" placeholder="Price of Item" />
+      <label for="quantity">Quantity of Item:</label>
+      <input type="text" name="amount" id="quantity" placeholder="How much?" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="cardWrapper">
+    <div *ngFor="let item of shoppingCart; index as i" class="card">
+      <p>ID: {{ item.id }}</p>
+      <p>Product: {{ item.product }}</p>
+      <p>Price: {{ item.price }}</p>
+      <p>Quantity: {{ item.quantity }}</p>
+      <button>Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- (click)="deleteItem(item.id)" -->
