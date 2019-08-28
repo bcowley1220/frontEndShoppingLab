@@ -1,31 +1,71 @@
 <div id="gridWrapper">
   <div id="formWrapper">
-    <form #postForm="ngForm" (ngSubmit)="addCartItem(postForm)">
+    <!-- <button *ngIf="!showPostForm" (click)="togglePostForm()">Add Person</button> -->
+    <form
+      *ngIf="!showPostForm"
+      #postForm="ngForm"
+      (ngSubmit)="[addCartItem(postForm), togglePostForm()]"
+    >
       <h2>Add in a new item</h2>
-      <label for="id">Add Item ID:</label>
-      <input type="text" name="id" id="" placeholder="ID of Item?" />
       <label for="product">Add Product Name:</label>
       <input
         type="text"
-        name="amount"
+        name="product"
         id="product"
+        ngModel
         placeholder="Name of Product?"
       />
       <label for="price">Price of Item:</label>
-      <input type="text" name="price" id="price" placeholder="Price of Item" />
+      <input
+        type="text"
+        name="price"
+        id="price"
+        ngModel
+        placeholder="Price of Item"
+      />
       <label for="quantity">Quantity of Item:</label>
-      <input type="text" name="amount" id="quantity" placeholder="How much?" />
+      <input
+        type="text"
+        name="quantity"
+        id="quantity"
+        ngModel
+        placeholder="How many?"
+      />
       <button type="submit">Submit</button>
     </form>
   </div>
 
+  <form
+    *ngIf="showEditForm"
+    #editForm="ngForm"
+    (ngSubmit)="[updateItem(editForm, itemToEdit.id), toggleEditForm()]"
+  >
+    <h1>Edit Item Amount!!!</h1>
+
+    <input
+      type="number"
+      name="quantity"
+      [ngModel]="itemToEdit.quantity"
+      placeholder="quantity"
+    />
+    <button>Edit Amount</button>
+  </form>
+  <!-- (click)="toggleEditForm() -->
+
   <div id="cardWrapper">
     <div *ngFor="let item of shoppingCart; index as i" class="card">
-      <p>ID: {{ item.id }}</p>
       <p>Product: {{ item.product }}</p>
       <p>Price: {{ item.price }}</p>
       <p>Quantity: {{ item.quantity }}</p>
-      <button>Delete</button>
+      <div id="buttonDiv">
+        <button (click)="deleteItem(item.id)" class="deleteButton">X</button>
+        <button
+          (click)="[toggleEditForm(), setItemToEdit(item)]"
+          class="editButton"
+        >
+          Edit
+        </button>
+      </div>
     </div>
   </div>
 </div>

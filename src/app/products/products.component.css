@@ -10,7 +10,7 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   background: lightblue;
 }
 #formWrapper > form {
@@ -58,7 +58,27 @@ form > button {
   justify-content: space-evenly;
   background: rgb(255, 252, 252);
 }
-.card > button {
+/* .card > button {
   width: 75%;
   border-radius: 15px;
+} */
+#buttonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.deleteButton {
+  width: 15%;
+  border: solid 1px black;
+  border-radius: 15px;
+  background: rgb(243, 83, 83);
+  color: white;
+}
+
+.editButton {
+  width: 25%;
+  border: solid 1px black;
+  border-radius: 15px;
+  background: rgb(73, 104, 116);
+  color: white;
 }
