@@ -10,7 +10,7 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   background: lightblue;
 }
 #formWrapper > form {
@@ -21,7 +21,7 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 form > input {
   margin-bottom: 25px;
@@ -44,6 +44,7 @@ form > button {
   overflow: hidden;
   justify-content: space-evenly;
   background: lightblue;
+  overflow-y: scroll;
 }
 
 .card {

@@ -12,15 +12,15 @@ export class CartService {
   getAllItems(): Observable<any> {
     return this.http.get("http://localhost:5000/shoppingCart");
   }
-  postNewItem(item: Item): Observable<any> {
+  addItem(item: Item): Observable<any> {
     return this.http.post("http://localhost:5000/shoppingCart", item);
   }
 
-  putItemChanges(quantity: number, id: number): Observable<any> {
+  updateItem(quantity: number, id: number): Observable<any> {
     return this.http.put(`http://localhost:5000/shoppingCart/${id}`, quantity);
   }
 
-  deleteItem(id: number): Observable<any> {
+  removeItem(id: number): Observable<any> {
     return this.http.delete(`http://localhost:5000/shoppingCart/${id}`);
   }
 }

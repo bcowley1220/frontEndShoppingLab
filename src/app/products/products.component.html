@@ -2,7 +2,6 @@
   <div id="formWrapper">
     <!-- <button *ngIf="!showPostForm" (click)="togglePostForm()">Add Person</button> -->
     <form
-      *ngIf="!showPostForm"
       #postForm="ngForm"
       (ngSubmit)="[addCartItem(postForm), togglePostForm()]"
     >

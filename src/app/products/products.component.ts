@@ -35,13 +35,13 @@ export class ProductsComponent implements OnInit {
   }
 
   addCartItem(form: NgForm): void {
-    this.cartService.postNewItem(form.value).subscribe(response => {
+    this.cartService.addItem(form.value).subscribe(response => {
       this.shoppingCart = response;
     });
   }
 
   deleteItem(id: number): void {
-    this.cartService.deleteItem(id).subscribe(response => {
+    this.cartService.removeItem(id).subscribe(response => {
       this.shoppingCart = response;
     });
     console.log("delete button is working");
@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
   updateItem(form: NgForm, id: number): void {
     console.log("i have been clicked");
     this.cartService
-      .putItemChanges(form.value, id)
+      .updateItem(form.value, id)
       .subscribe(response => (this.shoppingCart = response));
     this.toggleEditForm;
   }
